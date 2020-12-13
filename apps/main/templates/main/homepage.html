@@ -8,6 +8,33 @@
 <body>
     <a href="/logout">Log Out</a>
     <h1>Homepage</h1>
-    <p>Hello {{ name }}!</p>
+    <p>Hello {{ user.first_name }}!</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hat in user.hats.all %}
+            <tr>
+                <td>{{hat.brand}}</td>
+                <td>{{hat.color}}</td>
+                <td>{{hat.size}}</td>
+                <td>
+                    <a href="/hats/{{hat.id}}">View</a>
+                    <a href="/hats/{{hat.id}}/edit">Edit</a>
+                    <a href="/hats/{{hat.id}}/delete">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/hats/new">Add a new hat</a>
 </body>
 </html>

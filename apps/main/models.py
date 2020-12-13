@@ -29,3 +29,12 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager() # Overriding objects
+
+class Hat(models.Model):
+    brand = models.CharField(max_length=60)
+    color = models.CharField(max_length=10)
+    size = models.CharField(max_length=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    owner = models.ForeignKey(User, on_delete=models.CASCADE ,related_name="hats")

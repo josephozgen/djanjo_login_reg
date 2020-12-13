@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Hat Page</title>
+</head>
+<body>
+    <form action="/hats/{{ hat.id }}/update" method="POST">
+        {% csrf_token %}
+        <p>
+            <label for="">Brand</label>
+            <input type="text" name="brand" id="" value="{{ hat.brand }}"></p>
+        <p>
+            <label for="">Color</label>
+            <input type="text" name="color" id="" value="{{ hat.color }}"></p>
+        <p>
+            <label for="">Size</label>
+            <input type="text" name="size" id="" value="{{ hat.size }}"></p>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
